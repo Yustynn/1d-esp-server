@@ -2,11 +2,6 @@
 const app = express();
 const port = process.env.port || 1337
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
-
-
 app.post('/', (req, res) => {
   temp = req.ip.split(':');
   app.fan_ip = temp[temp.length-1];

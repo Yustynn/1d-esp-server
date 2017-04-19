@@ -18,11 +18,7 @@ getClientAddress = function (req) {
 };
 
 app.post('/', (req, res) => {
-  // temp = req.ip.split(':');
-  // app.fan_ip = temp[temp.length-1];
-  // console.log(req.ip);
-  // res.send('kthxbye');
-  app.fan_ip = getClientAddress(req)
+  app.fan_ip = getClientAddress(req).split(':')[0]
   res.send(`Recieved ${app.fan_ip}`)
 })
 

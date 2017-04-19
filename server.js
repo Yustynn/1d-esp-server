@@ -12,12 +12,18 @@ app.get('/', function (req, res) {
 });
 
 
+getClientAddress = function (req) {
+        return (req.headers['x-forwarded-for'] || '').split(',')[0]
+        || req.connection.remoteAddress;
+};
+
 app.post('/', (req, res) => {
   // temp = req.ip.split(':');
   // app.fan_ip = temp[temp.length-1];
   // console.log(req.ip);
   // res.send('kthxbye');
-  res.send(req.ip)
+  app.fan_ip = getClientAddress(req)
+  res.send(`Recieved ${app.fan_ip}`)
 })
 
 

@@ -13,10 +13,11 @@ app.get('/', function (req, res) {
 
 
 app.post('/', (req, res) => {
-  temp = req.ip.split(':');
-  app.fan_ip = temp[temp.length-1];
-  console.log(req.ip);
-  res.send('kthxbye');
+  // temp = req.ip.split(':');
+  // app.fan_ip = temp[temp.length-1];
+  // console.log(req.ip);
+  // res.send('kthxbye');
+  res.send(req.ip)
 })
 
 
